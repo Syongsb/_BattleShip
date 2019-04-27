@@ -60,11 +60,14 @@ public static class GameResources
         NewSound("Miss", "watershot.wav");
         NewSound("Winner", "winner.wav");
         NewSound("Lose", "lose.wav");
+
     }
 
     private static void LoadMusic()
     {
         NewMusic("Background", "horrordrone.mp3");
+		NewMusic ("Silent", "Silent Service.mp3");
+		NewMusic ("Owari", "Owari.mp3");
     }
 
     /// <summary>

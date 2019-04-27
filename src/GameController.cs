@@ -117,6 +117,7 @@ public static class GameController
         _theGame.AttackCompleted += AttackCompleted;
 
         AddNewState(GameState.Deploying);
+
     }
 
     /// <summary>
@@ -149,7 +150,7 @@ public static class GameController
             UtilityFunctions.AddExplosion(row, column);
         }
 
-        Audio.PlaySoundEffect(GameResources.GameSound("Hit"));
+        Audio.PlaySoundEffect (GameResources.GameSound ("Hit"));
 
         UtilityFunctions.DrawAnimationSequence();
     }
@@ -204,7 +205,7 @@ public static class GameController
 
             if (HumanPlayer.IsDestroyed)
             {
-                Audio.PlaySoundEffect(GameResources.GameSound("Lose"));
+                Audio.PlaySoundEffect(GameResources.GameSound("Owari"));
             }
             else
             {
