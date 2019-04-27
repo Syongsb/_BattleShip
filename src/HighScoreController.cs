@@ -126,7 +126,7 @@ static class HighScoreController
         if (_Scores.Count == 0)
             LoadScores();
 
-        SwinGame.DrawText("   High Scores   ", Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_HEADING);
+        SwinGame.DrawText("   High Scores   ", Color.White, GameResources.GameFont("Berk"), SCORES_LEFT, SCORES_HEADING);
 
         // For all of the scores
         int i;
@@ -138,9 +138,9 @@ static class HighScoreController
 
             // for scores 1 - 9 use 01 - 09
             if (i < 9)
-                SwinGame.DrawText(" " + System.Convert.ToString(i + 1) + ":   " + s.Name + "   " + System.Convert.ToString(s.Value), Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
+                SwinGame.DrawText(" " + System.Convert.ToString(i + 1) + ":   " + s.Name + "   " + System.Convert.ToString(s.Value), Color.White, GameResources.GameFont("Chela"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
             else
-                SwinGame.DrawText(i + 1 + ":   " + s.Name + "   " + System.Convert.ToString(s.Value), Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
+                SwinGame.DrawText(i + 1 + ":   " + s.Name + "   " + System.Convert.ToString(s.Value), Color.White, GameResources.GameFont("Chela"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
         }
     }
 
