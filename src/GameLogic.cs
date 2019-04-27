@@ -21,14 +21,17 @@ namespace GameLogic
 
             SwinGame.PlayMusic(GameResources.GameMusic("Background"));
 
-            // Game Loop
-            while (!(true == SwinGame.WindowCloseRequested() || GameController.CurrentState == GameState.Quitting))
+            do
             {
-
                 GameController.HandleUserInput();
                 GameController.DrawScreen();
+                if (SwinGame.KeyTyped(KeyCode.vk_b))
+                {
+                    SwinGame.StopMusic();
+                }
             }
-
+            // Game Loop
+            while (!(SwinGame.WindowCloseRequested() == true || GameController.CurrentState == GameState.Quitting));
 
             SwinGame.StopMusic();
 
