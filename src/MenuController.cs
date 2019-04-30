@@ -305,8 +305,13 @@ static class MenuController
 
 		     case MAIN_MENU_STOPMUSIC_BUTTON:
 				{
-					SwinGame.StopMusic();
+				if (SwinGame.MusicPlaying()) {
+					SwinGame.StopMusic ();
 					break;
+				} else {
+					SwinGame.PlayMusic(GameResources.GameMusic ("Silent"));
+					break;
+				}
 				}
         }
     }

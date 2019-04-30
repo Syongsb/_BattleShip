@@ -68,6 +68,9 @@ public static class GameResources
         NewMusic("Background", "horrordrone.mp3");
 		NewMusic ("Silent", "Silent Service.mp3");
 		NewMusic ("Owari", "Owari.mp3");
+		NewMusic ("Mario1","Mario1.mp3");
+		NewMusic ("Mario2","Mario 2.mp3");
+		NewMusic ("Mario3","Mario 3.mp3");
     }
 
     /// <summary>

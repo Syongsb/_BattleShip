@@ -187,7 +187,7 @@ public static class GameController
 			}
 
 			if (HumanPlayer.IsDestroyed) {
-				Audio.PlaySoundEffect (GameResources.GameSound ("Owari"));
+				Audio.PlaySoundEffect (GameResources.GameSound ("Lose"));
 			} else {
 				Audio.PlaySoundEffect (GameResources.GameSound ("Winner"));
 			}
