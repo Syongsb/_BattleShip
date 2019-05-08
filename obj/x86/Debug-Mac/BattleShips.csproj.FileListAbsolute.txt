@@ -132,3 +132,7 @@ C:\Users\Dell\Desktop\ShaeelBattleship\obj\x86\Debug-Mac\BattleShips.csproj.Core
 C:\Users\Dell\Desktop\ShaeelBattleship\obj\x86\Debug-Mac\BattleShips.csproj.CopyComplete
 C:\Users\Dell\Desktop\ShaeelBattleship\obj\x86\Debug-Mac\BattleShips.exe
 C:\Users\Dell\Desktop\ShaeelBattleship\obj\x86\Debug-Mac\BattleShips.pdb
+C:\Users\100085832\Downloads\_BattleShip\bin\Debug\BattleShips.exe.config
+C:\Users\100085832\Downloads\_BattleShip\bin\Debug\BattleShips.xml
+C:\Users\100085832\Downloads\_BattleShip\obj\x86\Debug-Mac\BattleShips.exe
+C:\Users\100085832\Downloads\_BattleShip\obj\x86\Debug-Mac\BattleShips.pdb

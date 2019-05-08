@@ -44,7 +44,12 @@ public class Ship
 	/// <value>The number of hits the ship can take</value>
 	/// <returns>The number of hits the ship can take</returns>
 	public int Size {
-		get { return _sizeOfShip; }
+		get {
+			
+
+				return _sizeOfShip;
+
+		}
 	}
 
 	/// <summary>

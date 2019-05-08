@@ -24,12 +24,17 @@ using SwinGameSDK;
 public static class GameController
 {
 	private static BattleShipsGame _theGame;
+	public static Timer _gameTimer = SwinGame.CreateTimer ();
 	private static Player _human;
 	private static AIPlayer _ai;
 
 	private static Stack<GameState> _state = new Stack<GameState> ();
-
-	private static AIOption _aiSetting;
+	public static Timer GameTimer {
+		get {
+			return _gameTimer;
+		}
+	}
+	public static AIOption _aiSetting;
 	public static int Ships_Remaining = 10;
 	/// <summary>
 	///     ''' Returns the current state of the game, indicating which screen is
@@ -37,6 +42,34 @@ public static class GameController
 	///     ''' </summary>
 	///     ''' <value>The current state</value>
 	///     ''' <returns>The current state</returns>
+	public static string TimeLeft ()
+	{
+		int _timeLeft = 360000;
+		_timeLeft -= (int)SwinGame.TimerTicks (GameTimer);
+		_timeLeft /= 1000;
+
+		if (_timeLeft < 0) {
+			_timeLeft = 0;
+			SwitchState (GameState.EndingGame);
+		}
+
+		int _minutes;
+		int _seconds;
+
+		_minutes = _timeLeft / 60;
+		_seconds = _timeLeft - (_minutes * 60);
+
+		string _timeLeftString;
+
+		if (_seconds < 10) {
+			_timeLeftString = _minutes + ":0" + _seconds;
+		} else {
+			_timeLeftString = _minutes + ":" + _seconds;
+		}
+
+		return _timeLeftString;
+	}
+
 	public static GameState CurrentState {
 		get {
 			return _state.Peek ();
@@ -182,7 +215,7 @@ public static class GameController
 			Audio.PlaySoundEffect (GameResources.GameSound ("Sink"));
 
 			while (Audio.SoundEffectPlaying (GameResources.GameSound ("Sink"))) {
-				SwinGame.Delay (10);
+				SwinGame.Delay (3);
 				SwinGame.RefreshScreen ();
 			}
 
@@ -271,7 +304,7 @@ public static class GameController
 	///     ''' Handles the user SwinGame.
 	///     ''' </summary>
 	///     ''' <remarks>
-	///     ''' Reads key and mouse input and converts these into
+	///     ''' ReadReadyToDeploys key and mouse input and converts these into
 	///     ''' actions for the game to perform. The actions
 	///     ''' performed depend upon the state of the game.
 	///     ''' </remarks>
@@ -310,14 +343,21 @@ public static class GameController
 		UtilityFunctions.DrawBackground ();
 
 		if (CurrentState == GameState.ViewingMainMenu) {
+			SwinGame.StopTimer (GameTimer);
 			MenuController.DrawMainMenu ();
 		} else if (CurrentState == GameState.ViewingGameMenu) {
+			SwinGame.StopTimer (GameTimer);
 			MenuController.DrawGameMenu ();
 		} else if (CurrentState == GameState.AlteringSettings) {
+			SwinGame.StopTimer (GameTimer);
 			MenuController.DrawSettings ();
 		} else if (CurrentState == GameState.Deploying) {
+			SwinGame.StopTimer (GameTimer);
 			DeploymentController.DrawDeployment ();
 		} else if (CurrentState == GameState.Discovering) {
+			if (SwinGame.TimerTicks (GameTimer) == 0) {
+				SwinGame.StartTimer (GameTimer);
+			}
 			DiscoveryController.DrawDiscovery ();
 		} else if (CurrentState == GameState.EndingGame) {
 			EndingGameController.DrawEndOfGame ();

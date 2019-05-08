@@ -68,6 +68,8 @@ static class DiscoveryController
 		//const int SLEFT_TOP = 296;
 		const int x = 80;
 		const int y = 300;
+		const int TIMER_LEFT = 100;
+		const int TIMER_TOP = 320;
 
 		if ((SwinGame.KeyDown (KeyCode.vk_LSHIFT) | SwinGame.KeyDown (KeyCode.vk_RSHIFT)) & SwinGame.KeyDown (KeyCode.vk_c))
 			UtilityFunctions.DrawField (GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, true);
@@ -81,5 +83,6 @@ static class DiscoveryController
 		SwinGame.DrawText (GameController.HumanPlayer.Hits.ToString (), Color.White, GameResources.GameFont ("Menu"), SCORES_LEFT, HITS_TOP);
 		SwinGame.DrawText (GameController.HumanPlayer.Missed.ToString (), Color.White, GameResources.GameFont ("Menu"), SCORES_LEFT, SPLASH_TOP);
 		SwinGame.DrawText ("Total Ships Left On Grid : " + GameController.Ships_Remaining.ToString (), Color.White, GameResources.GameFont ("Menu"), x, y);
+		SwinGame.DrawText ("TIME LEFT: " + GameController.TimeLeft (), Color.White, GameResources.GameFont ("Menu"), TIMER_LEFT, TIMER_TOP);
 	}
 }
